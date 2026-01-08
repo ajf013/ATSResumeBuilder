@@ -1,0 +1,61 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  transition: background-image 0.5s ease, background-color 0.5s ease, color 0.5s ease;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Light Theme Background - Soft Blue/Purple Gradient */
+html[data-theme='light'] body {
+  background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  background-attachment: fixed;
+  color: #333;
+}
+
+/* Dark Theme Background - Deep Space/Purple */
+html[data-theme='dark'] body {
+  background-image: linear-gradient(to top, #1e3c72 0%, #2a5298 0%, #1c1c1c 100%);
+  /* Fallback or specific beautiful dark gradient */
+  background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2672&auto=format&fit=crop');
+  /* Tech/Space bg if loads, else gradient fallback logic needed but CSS doesn't fallback url like that easily. Using linear-gradient mostly. */
+  /* Let's use a nice CSS gradient for reliability instead of unsplash */
+  background-image: linear-gradient(to right, #243949 0%, #517fa4 100%);
+  color: #f0f0f0;
+}
+
+/* Try to use a nice sophisticated background image for dark mode if user wants "Image" */
+html[data-theme='dark'] body {
+  /* Using a geometric dark pattern or gradient */
+  background: radial-gradient(circle at 10% 20%, rgb(0, 0, 0) 0%, rgb(64, 64, 64) 90.2%);
+}
+
+html[data-theme='light'] body {
+  background: linear-gradient(109.6deg, rgb(223, 234, 255) 11.2%, rgb(244, 248, 252) 91.1%);
+}
+
+.app-main {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.content-wrapper {
+  flex: 1;
+  width: 100%;
+  padding-bottom: 50px;
+}

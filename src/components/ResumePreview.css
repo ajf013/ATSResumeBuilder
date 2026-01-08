@@ -1,0 +1,123 @@
+.resume-preview-paper {
+    background: white;
+    width: 100%;
+    min-height: 297mm;
+    /* A4 height approx */
+    padding: 40px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    font-family: 'Times New Roman', Times, serif;
+    /* Typical resume serif font, or use Open Sans/Inter if preferred modernized */
+    font-family: 'Cambria', serif;
+    color: #333;
+    box-sizing: border-box;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+[data-theme='dark'] .resume-preview-paper {
+    /* Keep resume preview white even in dark mode for realism, or maybe slight off-white? Usually previews are white paper. */
+    background: #fff;
+    color: #333;
+}
+
+.resume-header {
+    text-align: center;
+    border-bottom: 2px solid #333;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.resume-name {
+    font-size: 28px;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.resume-title {
+    font-size: 16px;
+    margin: 5px 0;
+    font-weight: 600;
+}
+
+.resume-contact-info {
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.resume-contact-info .separator {
+    margin: 0 8px;
+    font-size: 10px;
+    vertical-align: middle;
+}
+
+.resume-section {
+    margin-bottom: 20px;
+}
+
+.resume-section-title {
+    font-size: 16px;
+    text-transform: uppercase;
+    border-bottom: 1px solid #333;
+    margin-bottom: 10px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+}
+
+.resume-item {
+    margin-bottom: 12px;
+}
+
+.resume-item-header {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+}
+
+.resume-item-sub {
+    font-style: italic;
+    font-size: 13px;
+    margin-bottom: 2px;
+}
+
+.resume-item-desc {
+    margin: 5px 0 0 0;
+    white-space: pre-wrap;
+}
+
+.resume-skill-row {
+    display: flex;
+    margin-bottom: 5px;
+}
+
+.resume-skill-label {
+    font-weight: 600;
+    width: 100px;
+    flex-shrink: 0;
+}
+
+.resume-subsection-title {
+    font-size: 14px;
+    border-bottom: 1px dashed #999;
+    margin: 10px 0 5px;
+}
+
+/* Print Styles */
+@media print {
+    body * {
+        visibility: hidden;
+    }
+
+    #resume-preview,
+    #resume-preview * {
+        visibility: visible;
+    }
+
+    #resume-preview {
+        position: absolute;
+        left: 0;
+        top: 0;
+        box-shadow: none;
+    }
+}
