@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import ResumePreview from './ResumePreview';
 import './ResumeForm.css';
+import html2pdf from 'html2pdf.js';
+import { saveAs } from 'file-saver';
+import { asBlob } from 'html-docx-js-typescript';
 
 const ResumeForm = () => {
     const [details, setDetails] = useState({
@@ -352,6 +355,44 @@ const ResumeForm = () => {
 
             <div className="preview-column">
                 <div className="preview-sticky-container">
+                    <div className="download-actions glass-panel">
+                        <button className="download-btn pdf" onClick={() => {
+                            const element = document.getElementById('resume-preview');
+                            const opt = {
+                                margin: 0,
+                                filename: `${details.firstName}_${details.lastName}_Resume.pdf`,
+                                image: { type: 'jpeg', quality: 0.98 },
+                                html2canvas: { scale: 2 },
+                                jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+                            };
+                            html2pdf().set(opt).from(element).save();
+                        }}>
+                            Download PDF
+                        </button>
+                        <button className="download-btn doc" onClick={() => {
+                            const element = document.getElementById('resume-preview'); // Get the preview element using ID
+                            if (element) {
+                                // We need a complete HTML structure for word
+                                const htmlString = `
+                                    <!DOCTYPE html>
+                                    <html>
+                                    <head>
+                                        <meta charset="utf-8">
+                                        <title>Resume</title>
+                                    </head>
+                                    <body>
+                                        ${element.outerHTML}
+                                    </body>
+                                    </html>
+                                `;
+                                asBlob(htmlString).then(blob => {
+                                    saveAs(blob, `${details.firstName}_${details.lastName}_Resume.docx`);
+                                });
+                            }
+                        }}>
+                            Download Word
+                        </button>
+                    </div>
                     <ResumePreview
                         details={details}
                         experiences={experiences}
