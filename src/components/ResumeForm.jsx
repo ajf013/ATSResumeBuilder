@@ -357,6 +357,10 @@ const ResumeForm = () => {
                 <div className="preview-sticky-container">
                     <div className="download-actions glass-panel">
                         <button className="download-btn pdf" onClick={() => {
+                            if (!details.firstName && !details.lastName) {
+                                alert('Please fill in at least your name to download.');
+                                return;
+                            }
                             const element = document.getElementById('resume-preview');
                             const opt = {
                                 margin: 0,
@@ -370,6 +374,10 @@ const ResumeForm = () => {
                             Download PDF
                         </button>
                         <button className="download-btn doc" onClick={() => {
+                            if (!details.firstName && !details.lastName) {
+                                alert('Please fill in at least your name to download.');
+                                return;
+                            }
                             const element = document.getElementById('resume-preview'); // Get the preview element using ID
                             if (element) {
                                 // We need a complete HTML structure for word
