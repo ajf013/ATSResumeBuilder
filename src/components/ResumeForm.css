@@ -360,12 +360,21 @@ button {
 
 @media (max-width: 768px) {
     .resume-grid-layout {
-        padding: 15px;
-        gap: 20px;
+        padding: 10px;
+        gap: 15px;
     }
 
     .form-row {
         flex-direction: column;
-        gap: 0;
+        gap: 15px;
+    }
+
+    .glass-panel {
+        padding: 15px;
+    }
+
+    input,
+    textarea {
+        width: 100%;
     }
 }

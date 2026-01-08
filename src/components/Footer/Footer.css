@@ -87,7 +87,15 @@
     transform: scale(1.2);
 }
 
-.footer_Icons .footer_twi a:hover {
-    color: lightblue;
-    transform: scale(1.2);
+transform: scale(1.2);
+}
+
+@media (max-width: 768px) {
+    .footer_main {
+        padding: 20px;
+    }
+
+    .footer_Icons {
+        padding: 10px 0;
+    }
 }
